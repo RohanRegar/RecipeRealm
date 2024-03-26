@@ -54,7 +54,7 @@ const Card = styled.div`
     justify-content: center;
     flex-direction: column;
     img {
-        widhth: 100%;
+        width: 100%;
         border-radius: 2rem;
     }
     a {
@@ -63,6 +63,12 @@ const Card = styled.div`
     h4 {
         text-align: center;
         padding: 1rem;
+        max-width: 18rem;
+        -webkit-line-clamp: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 `;
 export default Cuisine;

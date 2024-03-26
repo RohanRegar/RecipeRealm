@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+
 function Search() {
     const [input, setInput] = useState("");
     const navigate = useNavigate();
+
     const submitHandler = (e) => {
         e.preventDefault();
         navigate("/searched/" + input);
@@ -12,49 +14,49 @@ function Search() {
 
     return (
         <FormStyled onSubmit={submitHandler}>
-            <div>
-                <FaSearch />
-                <input
+            <SearchWrapper>
+                <SearchIcon>
+                    <FaSearch />
+                </SearchIcon>
+                <SearchInput
                     type="text"
                     onChange={(e) => setInput(e.target.value)}
                     value={input}
-                    placeholder="Enter the name of dish"
+                    placeholder="Enter the name of the dish"
                 />
-            </div>
+            </SearchWrapper>
         </FormStyled>
     );
 }
 
 const FormStyled = styled.form`
-    div {
-        position: relative;
-        width: 100%;
-        // margin-right: 30vw;
-    }
-    input {
-        position: absolute;
-        right: 0rem;
-        top: -2rem;
-        border: none;
-        background: linear-gradient(35deg, #494949, #313131);
-        font-size: 1.5rem;
-        color: white;
-        padding: 1rem 5rem;
-        border: none;
-        border-radius: 1rem;
-        outline: none;
-        width: 25vw;
-        // margin-right: auto;
-    }
+    width: 100%;
+    max-width: 600px; /* Limiting maximum width of the search bar */
+`;
 
-    svg {
-        position: absolute;
-        top: 50%;
-        right: 45rem;
-        transform: translate(100%, -50%);
-        color: white;
-        z-index: 2;
-    }
+const SearchWrapper = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+`;
+
+const SearchIcon = styled.div`
+    position: absolute;
+    left: 1rem; /* Adjust the distance of the search icon from the left */
+    color: white;
+`;
+
+const SearchInput = styled.input`
+    width: 100%;
+    border: none;
+    background: linear-gradient(35deg, #494949, #313131);
+    font-size: 1.5rem;
+    color: white;
+    padding: 1rem 2.5rem; /* Adjust padding to provide space for the search icon */
+    border-radius: 1rem;
+    outline: none;
+    box-sizing: border-box; /* Ensure padding doesn't add to the width */
 `;
 
 export default Search;

@@ -1,5 +1,5 @@
 import { FaHamburger, FaPizzaSlice } from "react-icons/fa";
-import { GiNoodles, GiChopsticks } from "react-icons/gi";
+import { GiNoodles, GiChopsticks, GiIndianPalace } from "react-icons/gi";
 import homeimage from "../images/home-image.jpg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
@@ -41,6 +41,12 @@ function Category() {
                     <h4>Japaneese</h4>
                     {/* </div> */}
                 </SLink>
+                <SLink to={"/cuisine/Indian"}>
+                    {/* <div> */}
+                    <GiIndianPalace />
+                    <h4>Indian</h4>
+                    {/* </div> */}
+                </SLink>
             </List>
         </div>
     );
@@ -64,7 +70,7 @@ const SLink = styled(NavLink)`
     cursor: pointer;
     transform: scale(0.8);
     margin: 1rem 1.7rem 0rem 1.7rem;
-
+    border: 4px solid transparent;
     h4 {
         margin-top: 0.7rem;
         color: white;
@@ -84,6 +90,10 @@ const SLink = styled(NavLink)`
         h4 {
             color: white;
         }
+    }
+    &:hover {
+        border-color: #d68910;
+        background: linear-gradient(35deg, #494949, #85929e);
     }
 `;
 

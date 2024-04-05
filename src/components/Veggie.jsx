@@ -38,7 +38,7 @@ function Veggie() {
                         drag: "free",
                         gap: "5rem",
                         autoplay: true,
-                        interval: 4000,
+                        interval: 3000,
                         speed: 400,
                         // type: "loop",
                     }}
@@ -79,7 +79,7 @@ const Card = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: fill;
     }
 
     p {

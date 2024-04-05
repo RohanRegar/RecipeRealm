@@ -23,7 +23,7 @@ function Recipe() {
     return (
         <RecipeWrapper>
             <div>
-                <h2>{recipe.title}</h2>
+                <h1>{recipe.title}</h1>
                 <img src={recipe.image} />
             </div>
             <Info>
@@ -41,14 +41,16 @@ function Recipe() {
                 </Button>
                 {activeTab === "instructions" && (
                     <div>
-                        <h3
+                        <h2>About this recipe</h2>
+                        <h4
                             dangerouslySetInnerHTML={{ __html: recipe.summary }}
-                        ></h3>
-                        <h3
+                        ></h4>
+                        <h2>Instruction</h2>
+                        <h4
                             dangerouslySetInnerHTML={{
                                 __html: recipe.instructions,
                             }}
-                        ></h3>
+                        ></h4>
                     </div>
                 )}
                 {activeTab === "ingredients" && (
@@ -70,8 +72,14 @@ const RecipeWrapper = styled.div`
         background: linear-gradient(35deg, #494949, #313131);
         color: white;
     }
+    h1 {
+        margin: 0rem 0rem 2rem 1rem;
+        background: -webkit-linear-gradient(269deg, #000000, #d5b65f);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
     h2 {
-        margin-bottom: 2rem;
+        margin: 2rem 0rem;
     }
     li {
         font-size: 1.2 rem;
@@ -79,6 +87,9 @@ const RecipeWrapper = styled.div`
     }
     ul {
         margin-top: 2rem;
+    }
+    img {
+        border-radius: 4rem;
     }
 `;
 
@@ -89,6 +100,9 @@ const Button = styled.button`
     border: 2px solid black;
     margin-right: 2rem;
     font-weight: 600;
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const Info = styled.div`

@@ -31,7 +31,7 @@ function Search() {
 
 const FormStyled = styled.form`
     width: 100%;
-    max-width: 600px; /* Limiting maximum width of the search bar */
+    max-width: 600px;
 `;
 
 const SearchWrapper = styled.div`
@@ -53,10 +53,10 @@ const SearchInput = styled.input`
     background: linear-gradient(35deg, #494949, #313131);
     font-size: 1.5rem;
     color: white;
-    padding: 1rem 2.5rem; /* Adjust padding to provide space for the search icon */
+    padding: 1rem 2.5rem;
     border-radius: 1rem;
     outline: none;
-    box-sizing: border-box; /* Ensure padding doesn't add to the width */
+    box-sizing: border-box;
 `;
 
 export default Search;

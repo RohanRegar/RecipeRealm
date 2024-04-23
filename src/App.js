@@ -6,25 +6,30 @@ import Search from "./components/Search";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { CiForkAndKnife } from "react-icons/ci";
+
+import { AppContext } from "./context/context";
+
 function App() {
     return (
         <div className="App">
-            <BrowserRouter>
-                <Nav>
-                    <CiForkAndKnife style={{
-                        color: "#4e8129",
-                        fontWeight: "bold",
-                        fontSize: "3.2rem"
-                    }}
-                    />
-                    <Logo to={"/"}>RecipeRealm</Logo>
-                    <Search />
-                </Nav>
+            <AppContext> {/* Move AppContext here */}
+                <BrowserRouter>
+                    <Nav>
+                        <CiForkAndKnife style={{
+                            color: "#4e8129",
+                            fontWeight: "bold",
+                            fontSize: "3.2rem"
+                        }}
+                        />
+                        <Logo to={"/"}>RecipeRealm</Logo>
+                        {/* Now, all components inside BrowserRouter have access to the context */}
+                        <Search />
+                    </Nav>
 
-                <Category />
-                <Pages />
-            </BrowserRouter>
-
+                    <Category />
+                    <Pages />
+                </BrowserRouter>
+            </AppContext>
         </div>
     );
 }
@@ -45,7 +50,6 @@ padding : 1rem 0rem;
 display: flex;
 justify-content : center;
 align-items: center;
-
 `
 
 export default App;
